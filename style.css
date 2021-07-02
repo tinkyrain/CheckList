@@ -28,7 +28,15 @@ header{
 
 .text-header{
   font-family: 'Montserrat', sans-serif;
-  padding-top: 100px;
+  padding-top: 80px;
+}
+
+.prompt{
+  color: #aaa;
+  font-family: 'Montserrat', sans-serif;
+
+  text-align: center;
+  padding-top: 90px;
 }
 
 main{
@@ -42,6 +50,8 @@ main{
   width: 100%;
   height: auto;
 
+  cursor: pointer;
+
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
@@ -53,6 +63,13 @@ main{
   padding-bottom: 20px;
 
   margin-bottom: 50px;
+}
+
+.task_block:hover{
+  background: #f83f3f;
+  color: white;
+
+  transition: all 0.5s ease;
 }
 
 .main-placeholder{

@@ -6,26 +6,23 @@ let main_placeholder = document.getElementById('main-placeholder');
 //When updating the page, the pure value
 input.value = '';
 
-//massive tasks
-let tasks_arr = [];
+//numbers tasks
+let tasks_num = 0;
 
 //Function for creating a block with a task
 function createTaskBlock(){
   let task_block = document.createElement('div');
   main.appendChild(task_block);
   task_block.className = 'task_block';
+  task_block.id = 'task_block';
 
   task_block.innerText = `${input.value}`;
+
+  task_block.onclick = remove_block;
 }
 
-function tasks(){
-  tasks_arr.push(input.value);
-  //clear field
-  input.value = '';
-
-  let numTasks = tasks_arr.length;
-
-  if(numTasks > 0){
+function tasks(tasks_num){
+  if(tasks_num > 0){
     main_placeholder.style.display = 'none';
   } else {
     main_placeholder.style.display = 'block';
@@ -38,8 +35,13 @@ function CheckFieldFill(){
     input.style.border = '1px solid red';
   } else {
     createTaskBlock();
-    tasks();
+    tasks_num++;
+    tasks(tasks_num);
+    //clear field
+    input.value = '';
   }
+
+  return tasks_num;
 }
 
 //Creating an ENTER Press Block
@@ -48,3 +50,11 @@ document.addEventListener('keydown', function(event){
     CheckFieldFill();
   }
 });
+
+function remove_block(){
+  //Removal block from page
+  this.remove();
+  tasks_num--;
+
+  tasks(tasks_num);
+}
