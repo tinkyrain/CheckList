@@ -63,6 +63,14 @@ main{
   padding-bottom: 20px;
 
   margin-bottom: 50px;
+
+  animation: Appearance 1s ease 1;
+}
+
+@keyframes Appearance{
+  0%{opacity: 0;}
+  50%{opacity: 0.5;}
+  100%{opacity: 1;}
 }
 
 .task_block:hover{
